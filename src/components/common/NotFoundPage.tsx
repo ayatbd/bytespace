@@ -1,10 +1,18 @@
-import React from "react";
-import { Navbar } from "@/src/components/layout/Navbar";
-import { Footer } from "@/src/components/layout/Footer";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 import confetti from "canvas-confetti";
 
 interface NotFoundPageProps {
-  onNavigate: (view: "home" | "login" | "register" | "search" | "course-details" | "creator-profile" | "404") => void;
+  onNavigate: (
+    view:
+      | "home"
+      | "login"
+      | "register"
+      | "search"
+      | "course-details"
+      | "creator-profile"
+      | "404",
+  ) => void;
   currentUser?: { name: string; email: string } | null;
   onSignOut?: () => void;
   cartCount?: number;

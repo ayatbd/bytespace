@@ -34,12 +34,7 @@ interface SearchPageProps {
 }
 
 export function SearchPage({
-  onNavigate = () => {},
-  currentUser = null,
-  onSignOut = () => {},
-  cartCount = 0,
   onSelectCourse = () => {},
-  onNewsletterSubmit = () => {},
   initialQuery = "",
 }: Partial<SearchPageProps> = {}) {
   const [searchQuery, setSearchQuery] = useState(initialQuery);

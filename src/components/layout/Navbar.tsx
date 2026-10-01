@@ -19,9 +19,9 @@ type UserProfile = {
 };
 
 type NavbarProps = {
-  currentView?: NavView | string;
+  currentView?: NavView;
   currentUser?: UserProfile | null;
-  onNavigate?: (view: NavView | string) => void;
+  onNavigate?: (view: NavView) => void;
   onSignOut?: () => void;
   onOpenCart?: (() => void) | null;
   cartCount?: number;
@@ -184,7 +184,11 @@ export function Navbar({
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white md:hidden"
         >
-          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {mobileMenuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </div>
 
@@ -228,7 +232,9 @@ export function Navbar({
           <div className="mt-3 flex flex-col gap-2 pt-3 border-t border-white/15">
             {currentUser ? (
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold">{currentUser.name}</span>
+                <span className="text-sm font-semibold">
+                  {currentUser.name}
+                </span>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);

@@ -1,6 +1,5 @@
+"use client";
 import { Course, COURSES } from "@/components/data/coursesData";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
 import {
   LimeSpring,
   LimeTorus,
@@ -10,20 +9,16 @@ import {
 import confetti from "canvas-confetti";
 import {
   ArrowRight,
-  AtSign,
   Award,
   BookOpen,
   Calendar,
   Check,
   CheckCircle2,
-  CircleDot,
   Clock,
-  Code2,
   Download,
   Globe,
   Heart,
   MessageSquare,
-  Play,
   Send,
   Share2,
   Sparkles,
@@ -442,21 +437,6 @@ export function CreatorProfilePage({
 
   return (
     <div className="min-h-screen bg-[#f8faff] text-slate-900 selection:bg-lime-300 selection:text-slate-900">
-      {/* Platform Header */}
-      <Navbar
-        currentView="creator-profile"
-        onNavigate={(view) => {
-          if (view === "creator-profile") {
-            // Stay on creator profile
-          } else {
-            onNavigate(view as any);
-          }
-        }}
-        currentUser={currentUser}
-        onSignOut={onSignOut}
-        cartCount={cartCount}
-      />
-
       {/* ================= HERO SECTION ================= */}
       <section className="relative overflow-hidden bg-[#0052FF] bg-grid-pattern pt-10 pb-28 text-white">
         {/* Floating 3D Geometric Accents */}
@@ -635,7 +615,7 @@ export function CreatorProfilePage({
                     className="hover:text-lime-300 transition-colors"
                     title="Twitter"
                   >
-                    <AtSign className="h-4 w-4" />
+                    {/* <Twitter className="h-4 w-4" /> */}
                   </a>
                 )}
                 {creator.social.dribbble && (
@@ -646,7 +626,7 @@ export function CreatorProfilePage({
                     className="hover:text-lime-300 transition-colors"
                     title="Dribbble"
                   >
-                    <CircleDot className="h-4 w-4" />
+                    {/* <Dribbble className="h-4 w-4" /> */}
                   </a>
                 )}
                 {creator.social.github && (
@@ -657,7 +637,7 @@ export function CreatorProfilePage({
                     className="hover:text-lime-300 transition-colors"
                     title="GitHub"
                   >
-                    <Code2 className="h-4 w-4" />
+                    {/* <Github className="h-4 w-4" /> */}
                   </a>
                 )}
                 {creator.social.youtube && (
@@ -668,7 +648,7 @@ export function CreatorProfilePage({
                     className="hover:text-lime-300 transition-colors"
                     title="YouTube"
                   >
-                    <Play className="h-4 w-4" />
+                    {/* <Youtube className="h-4 w-4" /> */}
                   </a>
                 )}
               </div>
@@ -1115,9 +1095,7 @@ export function CreatorProfilePage({
                         </span>
                       </div>
 
-                      <p className="mt-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                        "{rev.comment}"
-                      </p>
+                      <p className="mt-3 text-xs sm:text-sm text-slate-700 leading-relaxed"></p>
 
                       <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
                         <button
@@ -1533,9 +1511,6 @@ export function CreatorProfilePage({
           </div>
         </div>
       )}
-
-      {/* Comprehensive Footer */}
-      <Footer onNewsletterSubmit={(email) => onNewsletterSubmit?.(email)} />
     </div>
   );
 }

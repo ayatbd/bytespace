@@ -1,33 +1,6 @@
-// @ts-expect-error canvas-confetti does not provide bundled TypeScript declarations.
-import confetti from "canvas-confetti";
+import Link from "next/link";
 
-interface NotFoundPageProps {
-  onNavigate: (
-    view:
-      | "home"
-      | "login"
-      | "register"
-      | "search"
-      | "course-details"
-      | "creator-profile"
-      | "404",
-  ) => void;
-  currentUser?: { name: string; email: string } | null;
-  onSignOut?: () => void;
-  cartCount?: number;
-  onNewsletterSubmit?: (email: string) => void;
-}
-
-export function NotFoundPage({ onNavigate }: NotFoundPageProps) {
-  const handleBackToHome = () => {
-    confetti({
-      particleCount: 70,
-      spread: 60,
-      origin: { y: 0.6 },
-    });
-    onNavigate("home");
-  };
-
+export default function NotFoundPage() {
   return (
     <div className="flex min-h-screen flex-col justify-between bg-white text-slate-900 selection:bg-lime-300 selection:text-slate-900">
       {/* ================= HERO SECTION (Cobalt Blue Grid Background) ================= */}
@@ -70,12 +43,12 @@ export function NotFoundPage({ onNavigate }: NotFoundPageProps) {
 
             {/* Pill CTA Button matching image.png */}
             <div className="mt-8 flex justify-center sm:mt-10">
-              <button
-                onClick={handleBackToHome}
+              <Link
+                href="/"
                 className="rounded-full bg-[#D4F72C] px-8 py-3.5 text-xs font-bold text-slate-950 shadow-xl transition-all duration-200 hover:bg-[#c0eb26] hover:scale-105 active:scale-95 sm:text-sm cursor-pointer"
               >
                 Back to Home
-              </button>
+              </Link>
             </div>
           </div>
         </div>

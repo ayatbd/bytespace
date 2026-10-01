@@ -3,16 +3,17 @@ import { ByteSpaceLogoDark } from "@/components/shapes/FloatingShapes";
 import React, { useState } from "react";
 
 interface FooterProps {
-  onNewsletterSubmit: (email: string) => void;
+  onNewsletterSubmit?: (email: string) => void;
 }
 
-export function Footer() {
+export function Footer({ onNewsletterSubmit }: FooterProps = {}) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    onNewsletterSubmit?.(email);
     setSubscribed(true);
     setEmail("");
     setTimeout(() => setSubscribed(false), 5000);

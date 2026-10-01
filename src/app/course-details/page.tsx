@@ -85,15 +85,10 @@ interface CourseDetailsPageProps {
 
 export function CourseDetailsPage({
   course,
-  onNavigateToHome,
-  onNavigateToCourses,
   onNavigate,
   currentUser,
-  onSignOut,
-  cartCount,
   onEnroll,
   isEnrolled,
-  onNewsletterSubmit,
   initialTab = "reviews",
 }: CourseDetailsPageProps) {
   // Sync tab with initialTab
