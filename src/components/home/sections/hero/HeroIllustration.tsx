@@ -3,18 +3,18 @@ import { Palette, Star } from "lucide-react";
 
 export function HeroIllustration() {
   return (
-    <div className="relative mx-auto mt-6 flex h-[380px] w-full max-w-[500px] items-center justify-center sm:h-[460px] sm:max-w-[560px]">
+    <div className="relative mx-auto mt-6 flex h-95 w-full max-w-125 items-center justify-center sm:h-115 sm:max-w-140">
       {/* Vibrant Lime/Green Circular Disc Backdrop */}
       <div className="absolute h-64 w-64 rounded-full bg-[#c8ff00] shadow-[0_0_80px_rgba(200,255,0,0.4)] sm:h-80 sm:w-80 md:h-96 md:w-96" />
 
       {/* Ambient Blue Radial Glow behind */}
-      <div className="absolute h-80 w-80 rounded-full bg-blue-400/20 blur-3xl sm:h-[420px] sm:w-[420px]" />
+      <div className="absolute h-80 w-80 rounded-full bg-blue-400/20 blur-3xl sm:h-105 sm:w-105" />
 
       {/* Main Student Character Graphic */}
       <div className="relative z-10 flex h-full w-full items-end justify-center pb-2">
         <svg
           viewBox="0 0 440 440"
-          className="h-[340px] w-[340px] sm:h-[420px] sm:w-[420px] drop-shadow-2xl"
+          className="h-85 w-85 sm:h-105 sm:w-105 drop-shadow-2xl"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -201,7 +201,11 @@ export function HeroIllustration() {
           </span>
         </div>
         <div className="mt-2">
-          <Progress value={55} className="h-2 bg-slate-100" />
+          <Progress
+            value={55}
+            className="h-2 bg-slate-100"
+            indicatorClassName="bg-lime-400"
+          />
         </div>
       </div>
 

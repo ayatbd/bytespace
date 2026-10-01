@@ -2,6 +2,7 @@
 
 import { ByteSpaceLogo } from "@/components/shapes/FloatingShapes";
 import { LogOut, Menu, ShoppingBag, X } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 type NavView =
@@ -48,17 +49,17 @@ export function Navbar({
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        {/* Zone 1: Brand */}
-        <button
+        <Link
+          href="/"
           onClick={() => onNavigate("home")}
           className="flex items-center gap-2 cursor-pointer transition-transform hover:scale-105"
         >
           <ByteSpaceLogo />
-        </button>
+        </Link>
 
-        {/* Zone 2: Navigation Links (Desktop) */}
         <nav className="hidden items-center gap-8 md:flex">
-          <button
+          <Link
+            href="/"
             onClick={() => onNavigate("home")}
             className={`text-sm font-semibold transition-colors cursor-pointer ${
               currentView === "home"
@@ -67,8 +68,9 @@ export function Navbar({
             }`}
           >
             Home
-          </button>
-          <button
+          </Link>
+          <Link
+            href="/"
             onClick={() => onNavigate("search")}
             className={`text-sm font-semibold transition-colors cursor-pointer ${
               currentView === "search"
@@ -77,8 +79,9 @@ export function Navbar({
             }`}
           >
             Courses
-          </button>
-          <button
+          </Link>
+          <Link
+            href="/"
             onClick={() => onNavigate("creator-profile")}
             className={`text-sm font-semibold transition-colors cursor-pointer ${
               currentView === "creator-profile"
@@ -87,10 +90,9 @@ export function Navbar({
             }`}
           >
             Creators
-          </button>
+          </Link>
         </nav>
 
-        {/* Zone 3: Actions */}
         <div className="hidden items-center gap-4 md:flex">
           {currentUser ? (
             <div className="flex items-center gap-3">
@@ -111,18 +113,20 @@ export function Navbar({
             </div>
           ) : isMinimal ? (
             <div className="flex items-center gap-6">
-              <button
+              <Link
+                href="/login"
                 onClick={() => onNavigate("login")}
                 className="text-sm font-medium text-white hover:text-lime-300 transition-colors cursor-pointer"
               >
                 Sign In
-              </button>
-              <button
+              </Link>
+              <Link
+                href="/register"
                 onClick={() => onNavigate("register")}
                 className="text-sm font-medium text-white hover:text-lime-300 transition-colors cursor-pointer"
               >
                 Join Us
-              </button>
+              </Link>
               <button
                 onClick={() => {
                   if (onOpenCart) {
@@ -140,7 +144,8 @@ export function Navbar({
             </div>
           ) : (
             <>
-              <button
+              <Link
+                href="/login"
                 onClick={() => onNavigate("login")}
                 className={`text-sm font-semibold transition-colors cursor-pointer ${
                   currentView === "login"
@@ -149,15 +154,16 @@ export function Navbar({
                 }`}
               >
                 Sign In
-              </button>
+              </Link>
 
-              <button
+              <Link
+                href="/register"
                 onClick={() => onNavigate("register")}
                 className="flex items-center gap-2 rounded-full bg-lime-400 text-slate-950 px-5 py-2 text-sm font-bold transition-all hover:bg-lime-300 active:scale-95 shadow-sm cursor-pointer"
               >
                 Join Us
                 <ShoppingBag className="h-4 w-4" />
-              </button>
+              </Link>
             </>
           )}
 
@@ -174,23 +180,18 @@ export function Navbar({
           )}
         </div>
 
-        {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white md:hidden"
         >
-          {mobileMenuOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="mt-4 flex flex-col gap-3 rounded-2xl bg-[#0f34b2] p-5 md:hidden text-white shadow-xl">
-          <button
+          <Link
+            href="/"
             onClick={() => {
               setMobileMenuOpen(false);
               onNavigate("home");
@@ -198,8 +199,9 @@ export function Navbar({
             className="py-2 text-left text-base font-medium text-white/90 hover:text-white"
           >
             Home
-          </button>
-          <button
+          </Link>
+          <Link
+            href="/"
             onClick={() => {
               setMobileMenuOpen(false);
               onNavigate("search");
@@ -207,8 +209,9 @@ export function Navbar({
             className="py-2 text-left text-base font-medium text-white/90 hover:text-white"
           >
             Courses (Search)
-          </button>
-          <button
+          </Link>
+          <Link
+            href="/"
             onClick={() => {
               setMobileMenuOpen(false);
               onNavigate("creator-profile");
@@ -220,14 +223,12 @@ export function Navbar({
             }`}
           >
             Creators
-          </button>
+          </Link>
 
           <div className="mt-3 flex flex-col gap-2 pt-3 border-t border-white/15">
             {currentUser ? (
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold">
-                  {currentUser.name}
-                </span>
+                <span className="text-sm font-semibold">{currentUser.name}</span>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
@@ -240,7 +241,8 @@ export function Navbar({
               </div>
             ) : (
               <>
-                <button
+                <Link
+                  href="/login"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onNavigate("login");
@@ -248,8 +250,9 @@ export function Navbar({
                   className="w-full rounded-full border border-white/30 py-2.5 text-center text-sm font-semibold"
                 >
                   Sign In
-                </button>
-                <button
+                </Link>
+                <Link
+                  href="/register"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onNavigate("register");
@@ -257,7 +260,7 @@ export function Navbar({
                   className="w-full rounded-full bg-lime-400 py-2.5 text-center text-sm font-bold text-slate-950"
                 >
                   Join Us
-                </button>
+                </Link>
               </>
             )}
           </div>

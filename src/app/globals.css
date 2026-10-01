@@ -134,6 +134,14 @@
   }
 }
 
+.auth-page-grid {
+  background-color: #02060d;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 .bg-grid-pattern {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
